@@ -1,7 +1,7 @@
 !!!
 %html{ lang: 'ja' }
   %head
-    %title さくらマーケット
+    %title さくらマーケット管理画面
     %meta{ name: 'viewport', content: 'width=device-width,initial-scale=1' }
     = csrf_meta_tags
     = csp_meta_tag
@@ -9,13 +9,13 @@
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
   %body.base-color
-    %nav.navbar.navbar-expand-lg.user-main-color
+    %nav.navbar.navbar-expand-lg.admin-main-color
       .container-fluid
-        = link_to 'さくらマーケット', root_path, class: 'navbar-brand'
+        = link_to 'さくらマーケット管理画面', admins_root_path, class: 'navbar-brand text-white'
         %ul.navbar-nav
           %li.nav-item
-            -# TODO: ユーザーモデル追加後パス実装
-            = link_to 'ログイン', root_path, class: 'nav-link'
+          - if admin_signed_in?
+            = button_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'btn btn-outline-accent'
     = render 'layouts/flashes'
     .container-fuild
       .row

@@ -1,0 +1,46 @@
+// 共通スタイル
+$user-main-color: #A2C523;
+$admin-main-color: #486B00;
+$base-color: #F3F1E9;
+$accent-color: #FFBB00;
+$accent-hover-color: #ffbb00e9;
+
+// ユーザー用画面のメインカラー
+.user-main-color {
+  background-color: $user-main-color;
+}
+
+// 管理者用画面のメインカラー
+.admin-main-color {
+  background-color: $admin-main-color;
+}
+
+// ベースカラー
+.base-color {
+  background-color: $base-color;
+}
+
+// アクセントカラー
+.accent-color {
+  background-color: $accent-color;
+}
+
+.btn-accent {
+  background-color: $accent-color;
+  color: #fff;
+}
+
+.btn-accent:hover {
+  background-color: $accent-hover-color;
+  color: #fff;
+}
+
+.btn-outline-accent {
+  border: 2px solid $accent-color;
+  color: $accent-hover-color;
+}
+
+.btn-outline-accent:hover {
+  background-color: $accent-hover-color;
+  color: #fff;
+}
