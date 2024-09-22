@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '7.1.3.4'
 
+gem 'acts_as_list'
 gem 'bootsnap', require: false
 gem 'cssbundling-rails'
 gem 'devise'
@@ -9,8 +10,10 @@ gem 'haml-rails'
 gem 'image_processing'
 gem 'jbuilder'
 gem 'jsbundling-rails'
+gem 'mini_magick'
 gem 'pg'
 gem 'puma'
+gem 'redcarpet'
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'stimulus-rails'

@@ -1,0 +1,20 @@
+.col-md-6.offset-md-3.mt-5
+  %h1.fs-5 商品詳細
+  .bg-white.p-3
+    .row
+      .col-md-6.p-0
+        = product_image_tag(@product, 500, 450)
+      .col-md-6
+        %p= product_published_badge(@product)
+        .border-bottom.mb-2
+          %span.small.text-muted 商品名
+          %p.m-0= @product.name
+        .border-bottom.mb-2
+          %span.small.text-muted 価格
+          %p.m-0= number_to_currency(@product.price)
+        .border-bottom
+          %span.small.text-muted 商品説明
+          = markdown(@product.description)
+    .text-center.mt-5
+      = button_to 'この商品を削除する', admins_product_path(@product), method: :delete, data: { turbo_confirm: '削除します。本当によろしいですか？' }, class: 'btn btn-danger btn-sm'
+    .text-end.mt-3= link_to '商品マスタ一覧', admins_products_path
