@@ -6,6 +6,13 @@ ja:
         password: 'パスワード'
         password_confirmation: '確認用パスワード'
         remember_me: '次回から自動的にログイン'
+      product:
+        name: '商品名'
+        image: '商品画像'
+        price: '価格'
+        published: '表示する'
+        position: '表示順'
+        description: '商品説明'
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

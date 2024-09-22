@@ -1,0 +1,31 @@
+.col-md-6.offset-md-3.mt-5
+  %h1.fs-5 商品マスタ一覧
+  .card.border-0.p-3
+    %p= link_to '新規追加', new_admins_product_path, class: 'btn btn-accent'
+    %table.table
+      %thead
+        %tr
+          %th{ scope: 'col' } 表示順
+          %th{ scope: 'col' } 商品名
+          %th{ scope: 'col' } 価格
+          %th{ scope: 'col' } 表示
+          %th
+          %th
+      %tbody
+        - if @products.empty?
+          %tr
+            %td.text-center{ colspan: '6' } 商品マスタはありません。
+        - else
+          - @products.each do |product|
+            %tr
+              %td.align-middle= product.position
+              %td.align-middle= link_to product.name, admins_product_path(product), class: "text-decoration-none product-#{product.position}"
+              %td.align-middle= number_to_currency(product.price)
+              %td.align-middle= product_published_badge(product)
+              %td
+                = link_to '編集', edit_admins_product_path(product)
+              %td.text-end
+                = link_to move_higher_admins_product_path(product), class: 'text-decoration-none text-secondary move-higher' do
+                  %i.bi.bi-arrow-up
+                = link_to move_lower_admins_product_path(product), class: 'text-decoration-none text-secondary move-lower' do
+                  %i.bi.bi-arrow-down

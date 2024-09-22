@@ -40,5 +40,6 @@ module SakuraMarket
     config.generators.system_tests = nil
 
     config.i18n.default_locale = :ja
+    config.active_storage.variant_processor = :mini_magick
   end
 end

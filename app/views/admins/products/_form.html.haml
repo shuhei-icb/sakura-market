@@ -1,0 +1,11 @@
+= simple_form_for([:admins, product]) do |f|
+  = f.input :name
+  = f.input :image
+  = f.input :price
+  = f.input :published
+  = f.input :position
+  = f.input :description
+
+  .text-center
+    = f.button :submit, class: 'btn btn-accent'
+%p.text-end.mt-3= link_to '商品マスタ一覧', admins_products_path
