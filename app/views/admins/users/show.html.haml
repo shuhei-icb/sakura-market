@@ -1,0 +1,15 @@
+.col-md-6.offset-md-3.mt-5
+  %h1.fs-5 ユーザー詳細
+  .bg-white.p-3
+    .border-bottom.mb-2
+      %span.small.text-muted 名前
+      %p.m-0= @user.name
+    .border-bottom.mb-2
+      %span.small.text-muted メールアドレス
+      %p.m-0= @user.email
+    .border-bottom
+      %span.small.text-muted 住所
+      %p.m-0= @user.address
+    .text-center.mt-5
+      = button_to 'このユーザーを削除する', admins_user_path(@user), method: :delete, data: { turbo_confirm: '削除します。本当によろしいですか？' }, class: 'btn btn-danger btn-sm'
+    .text-end.mt-3= link_to '登録ユーザー一覧', admins_users_path

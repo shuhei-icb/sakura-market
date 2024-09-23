@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         get :move_lower
       end
     end
+    resources :users, only: %i[index show edit update destroy]
     root 'top#index'
   end
 end

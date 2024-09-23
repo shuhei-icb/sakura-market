@@ -1,0 +1,11 @@
+.col-md-6.offset-md-3.mt-5
+  %h1.fs-5 登録ユーザーの編集
+  .card.border-0.p-3
+    = simple_form_for([:admins, @user]) do |f|
+      = f.input :name
+      = f.input :email
+      = f.input :address
+
+      .text-center
+        = f.button :submit, class: 'btn btn-accent'
+    %p.text-end.mt-3= link_to '登録ユーザー一覧', admins_users_path
