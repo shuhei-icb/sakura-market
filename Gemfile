@@ -30,7 +30,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'haml_lint', require: false
   gem 'rspec-rails'
-  gem 'sgcop', github: 'SonicGarden/sgcop'
+  gem 'sgcop', github: 'SonicGarden/sgcop', branch: 'main'
 end
 
 group :test do

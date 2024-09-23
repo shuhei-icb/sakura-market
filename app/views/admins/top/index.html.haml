@@ -7,8 +7,7 @@
           %p.fw-bolder 商品マスタ管理
           %span.small.text-muted 商品の登録、編集を行います
     .col-md-6
-      -# TODO: ユーザーモデル追加後パス修正
-      = link_to admins_root_path, class: 'text-decoration-none' do
+      = link_to admins_users_path, class: 'text-decoration-none' do
         .card.d-flex.align-items-center.justify-content-center.admin-top-menu
           %p.fw-bolder ユーザー管理
-          %span.small.text-muted ユーザーの登録、編集を行います
+          %span.small.text-muted ユーザーの参照、編集を行います

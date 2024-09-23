@@ -1,0 +1,22 @@
+.col-md-6.offset-md-3.mt-5
+  %h1.fs-5 登録ユーザー一覧
+  .card.border-0.p-3
+    %table.table
+      %thead
+        %tr
+          %th{ scope: 'col' } id
+          %th{ scope: 'col' } 名前
+          %th{ scope: 'col' } メールアドレス
+          %th
+      %tbody
+        - if @users.empty?
+          %tr
+            %td.text-center{ colspan: '6' } ユーザーがいません。
+        - else
+          - @users.each do |user|
+            %tr
+              %td.align-middle= user.id
+              %td.align-middle= link_to user.name, admins_user_path(user), class: 'text-decoration-none'
+              %td.align-middle= user.email
+              %td
+                = link_to '編集', edit_admins_user_path(user)

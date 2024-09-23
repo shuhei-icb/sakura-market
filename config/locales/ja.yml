@@ -6,6 +6,12 @@ ja:
         password: 'パスワード'
         password_confirmation: '確認用パスワード'
         remember_me: '次回から自動的にログイン'
+      user:
+        name: '名前'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: '確認用パスワード'
+        address: '住所'
       product:
         name: '商品名'
         image: '商品画像'
