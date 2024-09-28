@@ -1,7 +1,7 @@
 ja:
   devise:
     confirmations:
-      confirmed: 'アカウントを登録しました。'
+      confirmed: 'メールアドレスの認証が完了しました。'
       send_instructions: 'アカウントの有効化について数分以内にメールでご連絡します。'
       send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。"
     failure:
@@ -16,7 +16,7 @@ ja:
       unconfirmed: 'メールアドレスの本人確認が必要です。'
     mailer:
       confirmation_instructions:
-        subject: 'アカウントの有効化について'
+        subject: 'メールアドレスの認証について'
       reset_password_instructions:
         subject: 'パスワードの再設定について'
       unlock_instructions:
@@ -37,7 +37,7 @@ ja:
       signed_up: 'アカウント登録が完了しました。'
       signed_up_but_inactive: 'ログインするためには、アカウントを有効化してください。'
       signed_up_but_locked: 'アカウントが凍結されているためログインできません。'
-      signed_up_but_unconfirmed: '本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。'
+      signed_up_but_unconfirmed: '本人確認用のメールを送信しました。メール内のリンクからメールアドレスを認証してください。'
       update_needs_confirmation: 'アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。'
       updated: 'アカウント情報を変更しました。'
     sessions:

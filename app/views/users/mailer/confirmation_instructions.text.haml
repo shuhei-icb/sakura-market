@@ -1,0 +1,13 @@
+#{@resource.name}様
+さくらマーケットのご利用ありがとうございます。
+\
+- if @resource.unconfirmed_email
+  メールアドレスが変更されました。
+  以下のURLをクリックして、メールアドレスの有効化を完了してください。
+- else
+  下記のリンクをクリックしてユーザ登録を完了してください。
+  以下のURLをクリックして、メールアドレスの有効化を完了してください。
+\
+有効期間は24時間です。
+\
+#{confirmation_url(@resource, confirmation_token: @token)}
