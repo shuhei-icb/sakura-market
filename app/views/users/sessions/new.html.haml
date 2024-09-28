@@ -1,0 +1,10 @@
+.col-md-6.offset-md-3.mt-5
+  .card.p-3
+    %h5.card-title.text-center ログイン
+    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.input :email, autofocus: true, autocomplete: 'email'
+      = f.input :password, autocomplete: 'current-password'
+      = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+      .text-center= f.button :submit, 'ログイン', class: 'btn btn-accent'
+    %p= link_to '新規登録はこちら', new_user_registration_path, class: 'text-decoration-none'
