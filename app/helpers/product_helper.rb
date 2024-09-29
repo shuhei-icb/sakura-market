@@ -3,7 +3,7 @@ module ProductHelper
     if product.image.attached?
       image_tag product.image.variant(resize_to_fit: [width, height]).processed, alt: "#{product.name}の商品画像", class: 'img-fluid'
     else
-      image_tag 'no-image.jpg', size: "#{width}x#{height}", alt: 'no-image', class: 'img-fluid'
+      image_tag 'no-image.jpg', size: "#{width}x#{height}", alt: 'no-image', class: 'img-fluid d-block mx-auto'
     end
   end
 
