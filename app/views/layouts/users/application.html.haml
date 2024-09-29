@@ -13,9 +13,16 @@
       .container-fluid
         = link_to 'さくらマーケット', root_path, class: 'navbar-brand'
         %ul.navbar-nav
-          %li.nav-item
-            -# TODO: ユーザーモデル追加後パス実装
-            = link_to 'ログイン', root_path, class: 'nav-link'
+          - if user_signed_in?
+            %li.nav-item.d-flex.align-items-center
+              = link_to carts_path, class: 'btn btn-accent' do
+                %i.bi.bi-bag
+                %span.ms-1 カート
+            %li.nav-item
+              = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-accent ms-2'
+          - else
+            %li.nav-item
+              = link_to 'ログイン', new_user_session_path, class: 'btn btn-accent ms-2'
     = render 'layouts/flashes'
     .container-fuild
       .row
