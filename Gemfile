@@ -22,6 +22,7 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development do
   gem 'bullet'
+  gem 'letter_opener_web'
   gem 'web-console'
 end
 
