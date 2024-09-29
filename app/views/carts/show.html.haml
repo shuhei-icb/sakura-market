@@ -1,0 +1,33 @@
+.col-md-8.offset-md-2.mt-5
+  %h1.fs-5 カートに入っている商品
+  .row
+    - if @cart_items.present?
+      .col-md-7.bg-white.pt-5
+        - total_price = 0
+        - @cart_items.each do |cart_item|
+          - total_price += cart_item.product.price_including_tax
+          .row.border-bottom.mb-5
+            .col-md-3.p-0
+              = product_image_tag(cart_item.product, 200, 150)
+            .col-md-9
+              .d-flex.justify-content-between.fs-5
+                .name= cart_item.product.name
+                .price
+                  = number_to_currency(cart_item.product.price_including_tax)
+                  %span.small （税込）
+              .text-end
+                = button_to '削除', carts_cart_item_path(cart_item), method: :delete, class: 'btn btn-link', form: { class: 'd-inline' }
+
+      .col-md-4.offset-md-1
+        .card
+          .card-body
+            %h5.card-title 注文内容
+            %table.table.table-striped
+              %tbody
+                %tr
+                  %th 合計
+                  %td.fw-bolder.fs-5.text-end
+                    = number_to_currency(total_price)
+            -# TODO: 注文モデル実装後パス変更
+            = link_to 'レジに進む', root_path, class: 'btn btn-accent w-100'
+            = link_to '買い物を続ける', root_path, class: 'btn btn-secondary w-100 mt-3'

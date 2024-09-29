@@ -1,0 +1,16 @@
+.col-md-6.offset-md-3.mt-5
+  %h1.fs-5 商品詳細
+  .bg-white.p-3
+    .row
+      .col-md-6.p-0
+        = product_image_tag(@product, 500, 450)
+      .col-md-6.position-relative
+        %h2= @product.name
+        %p #{number_to_currency(@product.price_including_tax)}（税込）
+        %p= markdown(@product.description)
+        %p
+          - if user_signed_in? && @product.in_cart?(current_cart)
+            %button.btn.btn-secondary.disabled カートに追加されています
+          - else
+            = button_to 'カートに入れる', carts_cart_items_path(product_id: @product), method: :post, class: 'btn btn-accent position-absolute bottom-0'
+      %p.text-end.mt-3= link_to '商品一覧', root_path
