@@ -11,7 +11,7 @@
           %p.m-0= @product.name
         .border-bottom.mb-2
           %span.small.text-muted 価格
-          %p.m-0= number_to_currency(@product.price)
+          %p.m-0= number_to_currency(@product.price_including_tax)
         .border-bottom
           %span.small.text-muted 商品説明
           = markdown(@product.description)
