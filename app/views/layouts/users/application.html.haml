@@ -15,7 +15,9 @@
         %ul.navbar-nav
           - if user_signed_in?
             %li.nav-item.d-flex.align-items-center
-              = link_to carts_path, class: 'btn btn-accent' do
+              = link_to '注文履歴', users_order_items_path, class: 'btn btn-accent'
+            %li.nav-item.d-flex.align-items-center
+              = link_to carts_path, class: 'btn btn-accent ms-2' do
                 %i.bi.bi-bag
                 %span.ms-1 カート
             %li.nav-item
