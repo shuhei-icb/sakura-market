@@ -1,0 +1,15 @@
+.col-md-6.offset-md-3.mt-5
+  %h1.fs-5 注文履歴
+  - @order_items.each do |order_item|
+    .card.mb-3
+      .row
+        .col-md-2= product_image_tag(order_item.product, 200, 150)
+        .col-md-10
+          .card-body
+            %h5.card-title
+              = link_to order_item.product.name, product_path(order_item.product), class: 'text-decoration-none'
+            %p.m-0
+              注文日：
+              = l order_item.order.created_at, format: :long
+            %p
+              #{number_to_currency(order_item.price)}（税込）

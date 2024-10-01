@@ -8,5 +8,9 @@ FactoryBot.define do
     trait :confirmed do
       confirmed_at { 1.day.ago }
     end
+
+    trait :with_cart do
+      cart
+    end
   end
 end
