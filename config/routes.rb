@@ -23,6 +23,11 @@ Rails.application.routes.draw do
     root 'top#index'
   end
 
+  namespace :users do
+    resource :orders, only: %i[show create]
+    resources :order_items, only: :index
+  end
+
   resource :carts, only: :show do
     resources :cart_items, only: %i[create destroy], module: :carts
   end
