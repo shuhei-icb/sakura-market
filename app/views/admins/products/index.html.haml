@@ -20,7 +20,7 @@
             %tr
               %td.align-middle= product.position
               %td.align-middle= link_to product.name, admins_product_path(product), class: "text-decoration-none product-#{product.position}"
-              %td.align-middle= number_to_currency(product.price)
+              %td.align-middle= number_to_currency(product.price_including_tax)
               %td.align-middle= product_published_badge(product)
               %td
                 = link_to '編集', edit_admins_product_path(product)

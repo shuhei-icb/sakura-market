@@ -8,11 +8,11 @@ describe '商品' do
       visit admins_products_path
       expect(page).to have_content '1'
       expect(page).to have_link 'トマト'
-      expect(page).to have_content '300円'
+      expect(page).to have_content '330円'
       expect(page).to have_content '非表示'
       expect(page).to have_content '2'
       expect(page).to have_link 'レタス'
-      expect(page).to have_content '100円'
+      expect(page).to have_content '110円'
       expect(page).to have_content '表示中'
       expect(page).to have_link '編集'
     end
@@ -49,7 +49,7 @@ describe '商品' do
       expect(page).to have_content '表示中'
       expect(page).to have_selector("img[src$='tomato-image.jpg']")
       expect(page).to have_content 'トマト'
-      expect(page).to have_content '100円'
+      expect(page).to have_content '110円'
       expect(page).to have_selector 'h1', text: '熊本県産のトマトです。'
       expect(page).to have_button 'この商品を削除する'
     end
@@ -82,7 +82,7 @@ describe '商品' do
       click_button '更新する'
       expect(page).to have_content '変更が完了しました。'
       expect(page).to have_content 'レタス'
-      expect(page).to have_content '300円'
+      expect(page).to have_content '330円'
       expect(page).to have_content '群馬県産のレタスです。'
     end
 

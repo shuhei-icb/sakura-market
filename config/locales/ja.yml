@@ -11,6 +11,7 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: '確認用パスワード'
+        remember_me: '次回から自動的にログイン'
         address: '住所'
       product:
         name: '商品名'
@@ -19,12 +20,19 @@ ja:
         published: '表示する'
         position: '表示順'
         description: '商品説明'
+      cart_item:
+        cart_id: 'カート'
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+      models:
+        cart_item:
+          attributes:
+            cart_id:
+              taken: 'にすでに同じ商品が入っています'
   date:
     abbr_day_names:
     - 日

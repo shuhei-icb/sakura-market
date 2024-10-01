@@ -4,5 +4,13 @@ FactoryBot.define do
     email { 'sakura@example.com' }
     password { 'password' }
     address { '東京都中央区日本橋1-1さくらビル2階' }
+
+    trait :confirmed do
+      confirmed_at { 1.day.ago }
+    end
+
+    trait :with_cart do
+      cart
+    end
   end
 end

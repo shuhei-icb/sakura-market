@@ -32,19 +32,41 @@ describe 'ユーザー' do
   describe '編集' do
     it 'ユーザーを編集できる' do
       admin = create(:admin)
-      create(:user, name: 'さくら太郎', email: 'sakura@example.com', address: '東京都中央区日本橋1-1さくらビル2階')
+      create(:user, name: 'さくら太郎', address: '東京都中央区日本橋1-1さくらビル2階')
       sign_in admin
       visit admins_users_path
       expect(page).to have_link 'さくら太郎'
       click_on '編集'
       fill_in '名前', with: 'RSpec太郎'
-      fill_in 'メールアドレス', with: 'rspec@example.com'
       fill_in '住所', with: '神奈川県横浜市中区みなとみらい1-1'
       click_button '更新する'
       expect(page).to have_content '変更が完了しました。'
       expect(page).to have_content 'RSpec太郎'
-      expect(page).to have_content 'rspec@example.com'
       expect(page).to have_content '神奈川県横浜市中区みなとみらい1-1'
+    end
+
+    it 'メールアドレスを編集する場合は、ユーザーにメールアドレスの認証が必要' do
+      admin = create(:admin)
+      create(:user, name: 'さくら太郎', email: 'sakura@example.com')
+      sign_in admin
+      visit admins_users_path
+      expect(page).to have_link 'さくら太郎'
+      click_on '編集'
+      fill_in 'メールアドレス', with: 'rspec@example.com'
+      click_button '更新する'
+      expect(page).to have_content '変更が完了しました。'
+
+      email = ActionMailer::Base.deliveries.last
+      expect(email.to).to include('rspec@example.com')
+      expect(email.subject).to include('メールアドレスの認証について')
+
+      # メールのリンクからアカウントを有効化
+      confirmation_token = email.body.match(/confirmation_token=([^"]+)/)[1].chomp
+      visit user_confirmation_path(confirmation_token:)
+      expect(page).to have_content('メールアドレスの認証が完了しました。')
+
+      visit admins_users_path
+      expect(page).to have_content 'rspec@example.com'
     end
 
     it '入力が不正な場合、更新されない' do

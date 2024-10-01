@@ -1,0 +1,31 @@
+!!!
+%html{ lang: 'ja' }
+  %head
+    %title さくらマーケット
+    %meta{ name: 'viewport', content: 'width=device-width,initial-scale=1' }
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
+  %body.base-color
+    %nav.navbar.navbar-expand-lg.user-main-color
+      .container-fluid
+        = link_to 'さくらマーケット', root_path, class: 'navbar-brand'
+        %ul.navbar-nav
+          - if user_signed_in?
+            %li.nav-item.d-flex.align-items-center
+              = link_to '注文履歴', users_order_items_path, class: 'btn btn-accent'
+            %li.nav-item.d-flex.align-items-center
+              = link_to carts_path, class: 'btn btn-accent ms-2' do
+                %i.bi.bi-bag
+                %span.ms-1 カート
+            %li.nav-item
+              = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-accent ms-2'
+          - else
+            %li.nav-item
+              = link_to 'ログイン', new_user_session_path, class: 'btn btn-accent ms-2'
+    = render 'layouts/flashes'
+    .container-fuild
+      .row
+        = yield
