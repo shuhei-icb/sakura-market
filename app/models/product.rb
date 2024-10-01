@@ -15,4 +15,9 @@ class Product < ApplicationRecord
   def in_cart?(cart)
     cart.include?(self)
   end
+
+  def self.price_correct?(total_price)
+    taxed_price = self.pluck(:price).map { |price| Taxable.including_tax(price) }
+    taxed_price.sum == total_price
+  end
 end
